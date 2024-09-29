@@ -1,0 +1,870 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Abel;
+}
+:root {
+    --logotürkis: #4cb1bc;
+}
+/* ================== NAVIGATION ================== */
+.navbar {
+    background-color: rgba(255, 253, 246, 0.9);/*rgba(243, 236, 221, 0.9)*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 2rem;
+    font-size: 1.3rem;
+    color: #4cb1bc;
+}
+.navbar img {
+    height: 3.5rem;
+    width: auto;
+}
+.navbar .menu-toggle {
+    display: none;
+}
+.navbar .menu-toggle img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.navbar .menu-toggle img.close-icon {
+    display: none;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 3.5rem;
+}
+.navbar ul li {
+    position: relative;
+    margin-right: 20px;
+}
+.navbar ul a {
+    text-decoration: none;
+    color: #4cb1bc;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s ease;
+}
+.navbar a:hover {
+    color: #333 !important;
+}
+.navbar ul li:hover .dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 253, 246, 0.9);/*rgba(243, 236, 221, 0.9)*/;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    min-width: 200px;
+    z-index: 1000;
+}
+.dropdown {
+    display: none;
+    white-space: nowrap;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+}
+.dropdown.open {
+    display: block;
+}
+.dropdown a {
+    padding: 10px 15px;
+    color: #333;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    display: block;
+}
+.dropdown a:hover {
+    color: #333;
+    background-color: rgba(228, 221, 207, 0.9);
+}
+.nav-logo.mobile-only {
+    display: none;
+    height: 2.5rem;
+    width: auto;
+}
+/* ================== HOME ================== */
+#home {
+    background: linear-gradient(
+        rgba(0,0,0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3) 75%,
+        rgba(245, 239, 225, 1.0)) , 
+        url(images/paar-seeblick.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+#home img {
+    display: block;
+    padding-top: 17rem;
+    margin: 0 auto;
+    width: 60rem;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+#home h1 {
+    font-family: Dancing Script;
+    font-size: 4rem;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    margin-top: 5rem;
+}
+/* ================== ANGEBOT ================== */
+#angebot, #portfolio, #über-mich {
+    background-color: rgb(245, 239, 225);
+    text-align: center;
+}
+.titles {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+#angebot h1, #portfolio h1, #über-mich h1, #impressum h1 {
+    font-size: 5rem;
+    font-family: Dancing Script;
+    color: #4cb1bc;
+    padding: 6rem 1rem 2rem 1rem;
+}
+#angebot h2 {
+    color: #333;
+    font-size: 2rem;
+    font-family: Dancing Script;
+    padding-top: 1rem;
+}
+.angebot-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 70px 20px 100px 20px;
+}
+.angebot-container a {
+    text-decoration: none;
+}
+.item {
+    border: 2px solid #b4b4b4;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+.item:hover {
+    background-color: rgb(230, 223, 209);
+}
+.item:hover img {
+    filter: grayscale(0%);
+}
+.item img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: grayscale(40%);
+}
+.item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+/* ================== Zitat ================== */
+#zitat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.zitat {
+    color: #333;
+    padding: 0 2rem;
+}
+.zitat h3 {
+    font-size: 1.8rem;
+    font-style: italic;
+}
+.zitat h4 {
+    font-size: 1.3rem;
+    padding-top: 1rem;
+}
+.zitat-bild {
+    width: 30rem;
+    max-width: 100%;
+}
+.zitat-bild img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8rem;
+}
+/* ================== Familien-Shooting ================== */
+#family-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/mutter-vater-baby.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+#family-home h1, #paar-home h1, #baby-home h1, #produkt-home h1, #hochzeit-home h1, #extras-home h1 {
+    text-align: center;
+    font-size: 10rem;
+    font-family: Dancing Script;
+    padding-top: 25rem;
+    color: white;
+}
+#family-angebot, #paar-angebot, #baby-angebot, #produkt-angebot, #hochzeit-angebot, #extras-angebot {
+    background-color: rgb(245, 239, 225);
+}
+.extras-angebot {
+    display: flex;
+    justify-content: center; /* Zentriert den Button horizontal */
+    align-items: center; /* Zentriert den Button vertikal (optional) */
+    padding-bottom: 3rem;
+}
+.angebots-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 5rem;
+}
+.angebots-div p {
+    font-size: 1.5rem;
+}
+.angebots-div .kleinp {
+    font-size: 1.2rem;
+}
+.angebot-bild {
+    width: 100rem;
+    max-width: 100%;
+}
+.angebot-bild2 {
+    width: 37rem;
+    max-width: 100%;
+}
+.angebot-bild img, .angebot-bild2 img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8rem;
+}
+.bild-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    margin: 0; /* Sicherstellen, dass keine zusätzlichen Margen vorhanden sind */
+    padding: 0;
+}
+.bild-container .parallax-img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 75vh;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center;
+}
+/* ================== Paar-Shooting ================== */
+#paar-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/paarshooting-frau-kuesst-mann.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+/* ================== Baby-Shooting ================== */
+#baby-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/baby-blickt-in-kamera.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+/* ================== Produkt-Shooting ================== */
+#produkt-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/produktfotografie-schacher-sepp-titelbild.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+/* ================== Hochzeit-Shooting ================== */
+#hochzeit-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/hochzeitsshooting-brautpaar-heissluftballon.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+/* ================== Gutscheine & Extras ================== */
+#extras-home {
+    background: linear-gradient(
+        rgba(0, 0, 0,0.7), 
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.3),
+        rgb(0, 0, 0)) , 
+        url(images/haende-blume.webp);
+    background-size: cover;
+    background-position: center;
+    min-height: 100svh;
+}
+.extras-div {
+    padding: 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+#extras-angebot a {
+    text-align: center;
+}
+.kontakt-button {
+    border: 2px solid #333; /* 2px solide Border in #333 */
+    color: #333; /* Textfarbe #333 */
+    text-decoration: none; /* Entfernt die Text-Dekoration */
+    padding: 10px 20px; /* Innenabstand für besseren Button-Rand */
+    display: inline-block; /* Stellt sicher, dass der Button korrekt dargestellt wird */
+    font-weight: bold; /* Optional: Fettgedruckte Schrift für besseren Kontrast */
+    font-size: 16px; /* Optional: Schriftgröße */
+    background-color: transparent; /* Hintergrundfarbe des Buttons transparent */
+    font-size: 1.3rem;
+}
+.kontakt-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(180, 174, 163);
+}
+/* ================== PORTFOLIO ================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 1300px;
+    width: 100%;
+    margin: 1rem auto;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%; /* Macht das Container-Element quadratisch */
+    cursor: pointer; /* Ändert den Cursor beim Hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Übergang für Hover-Effekte */
+}
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease; /* Übergang für den Box-Shadow-Effekt */
+}
+.gallery-item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem; /* Verschiebt das Overlay nach unten */
+    box-sizing: border-box;
+    transition: opacity 0.5s ease; /* Übergang für das Overlay */
+    opacity: 0;
+}
+#overlay.show {
+    display: flex;
+    opacity: 1;
+}
+#overlay-image {
+    max-width: 90%;
+    max-height: 80%;
+    margin: 0 auto;
+}
+button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+#close-btn {
+    position: absolute;
+    top: 6rem; /* Verschiebt das Schließen-Button nach unten */
+    right: 10px;
+}
+#prev-btn, #next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#prev-btn {
+    left: 10px;
+}
+#next-btn {
+    right: 10px;
+}
+/* ================== KONTAKT ================== */
+.kontakt-grid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1300px;
+    margin: 3rem auto;
+    gap: 3rem;
+    color: #333;
+}
+.kontakt {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.kontakt-img {
+    padding: 1rem;
+    background-color: rgba(208, 195, 178, 1);
+    border-radius: 1rem;
+}
+.kontakt-img img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: auto;
+}
+.kontakt-grid a {
+    text-decoration: underline;
+    color: #333;
+    font-weight: 400;
+    cursor: pointer;
+}
+.map-container {
+    width: 100%;
+    height: 50vh;
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* ================== IMPRESSUM ================== */
+#impressum {
+    text-align: center;
+    background-color: rgb(253, 250, 243);
+}
+.texts {
+    padding: 3rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+#impressum h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+#impressum h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+#impressum p {
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+}
+/* ================== Footer ================== */
+footer {
+    background-color: rgba(208, 195, 178, 1);
+    padding: 2rem 1rem;
+    color: #333;
+}
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.footer-column {
+    width: 25%;
+}
+.footer-column:last-child {
+    width: 50%;
+}
+.footer-column h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(128, 119, 107);
+}
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+.footer-column ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-column ul li a:hover {
+    color: #797979;
+}
+.footer-column p, .footer-column a {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem 0;
+}
+.social-icon {
+    display: inline-block;
+    padding: 8px 8px 2px 8px;
+    background-color: rgb(177, 166, 151);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.social-icon img {
+    width: 20px;
+    height: 20px;
+}
+.social-icon:hover {
+    background-color: rgba(165, 155, 140, 1);
+}
+.footer-column form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+form .input-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.1rem;
+}
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Abel', sans-serif;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(193, 181, 165, 1);
+    color: #333;
+    outline: none;
+}
+form input::placeholder,
+form textarea::placeholder {
+    color: #666;
+    font-family: 'Abel', sans-serif;
+}
+form input[name="name"],
+form input[name="email"] {
+    flex: 1;
+}
+form textarea {
+    resize: none;
+    min-height: 140px;
+}
+form button {
+    padding: 10px 20px;
+    background-color: rgba(193, 181, 165, 1);
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Abel', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+    background-color: rgba(165, 155, 140, 1);
+}
+#erfolg p {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 5rem;
+}
+/* ================== MEDIA QUERYS ================== */
+@media screen and (max-height: 800px) {
+    #home img {
+        padding-top: 12rem;
+        width: 50rem;
+    }
+    #home h1 {
+        font-size: 3.5rem;
+        margin-top: 3rem;
+    }
+    #family-home h1, #paar-home h1, #baby-home h1, #produkt-home h1, #hochzeit-home h1, #extras-home h1 {
+        font-size: 9rem;
+        padding-top: 18rem;
+    }
+}
+@media (max-width: 1130px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+    .nav-logo.mobile-only {
+        display: block;
+    }
+    .mobile-hider {
+        display: none;
+    }
+    .navbar ul li:nth-child(3) {
+        display: none;
+    }
+    .navbar .menu-toggle {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
+        margin-left: auto;
+    }
+    .navbar .menu-toggle img {
+        display: block;
+    }
+    .navbar .menu-toggle img.close-icon {
+        display: none;
+    }
+    .navbar .menu-toggle img.rotate {
+        transform: rotate(90deg);
+    }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 253, 246, 0.9);
+    }
+    .navbar ul.open {
+        display: flex;
+    }
+    .navbar ul li {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar ul .dropdown {
+        position: static;
+        width: 100%;
+    }
+    .navbar ul .dropdown a {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+    .navbar ul .dropdown-toggle {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 15px;
+        cursor: pointer;
+    }
+    #family-home h1, #paar-home h1, #baby-home h1, #produkt-home h1, #hochzeit-home h1, #extras-home h1 {
+        font-size: 7rem;
+        padding-top: 18rem;
+    }
+}
+@media (min-width: 1131px) {
+    .navbar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu-toggle {
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    #home img {
+        padding-top: 17rem;
+        width: 40rem;
+    }
+    #home h1 {
+        font-size: 3rem;
+        margin-top: 5rem;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .kontakt-grid {
+        display: block;
+    }
+    .kontakt {
+        margin: 2rem 0;
+    }
+}
+@media (max-width: 900px) {
+    .angebots-div {
+        display: block;
+        text-align: center;
+    }
+    .angebots-div p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+    }
+    .angebot-bild, .angebot-bild2 {
+        width: 20rem;
+        max-width: 100%;
+        margin: 1rem auto 2rem auto;
+    }
+}
+@media (max-width: 800px) {
+    .angebot-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0rem;
+    }
+    .footer-column {
+        width: 100%;
+        text-align: center;
+        padding: 0; /* Entferne Padding */
+    }
+    .footer-column:last-child {
+        width: 100%; /* Volle Breite für die letzte Spalte */
+    }
+    .footer-column h3 {
+        text-align: center;
+    }
+    .footer-column ul {
+        padding: 0;
+        text-align: center;
+    }
+    .footer-column ul li {
+        margin-bottom: 0.75rem;
+    }
+    .footer-column p, 
+    .footer-column a {
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    form {
+        width: 90%; /* Breite auf 90% setzen */
+        max-width: 500px; /* Optional: Maximale Breite setzen */
+        margin: 0 auto; /* Zentriere das Formular */
+    }
+    form .input-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    form input[name="name"],
+    form input[name="email"],
+    form textarea {
+        width: 100%;
+        box-sizing: border-box; /* Sicherstellen, dass Padding/Borders in die Breite einbezogen werden */
+        text-align: left; /* Textausrichtung auf links setzen */
+    }
+    form button {
+        margin-top: 1rem;
+    }
+}
+@media (max-width: 700px) {
+    #home img {
+        padding-top: 17rem;
+        width: 30rem;
+    }
+    #home h1 {
+        font-size: 3rem;
+        margin-top: 5rem;
+    }
+    #zitat {
+        display: block;
+        text-align: center;
+    }
+    .zitat {
+        margin: 2rem;
+    }
+    .zitat-bild {
+        margin: 2rem auto;
+    }
+    #impressum h1 {
+        font-size: 4rem;
+    }
+}
+@media (max-width: 550px) {
+    .angebot-container {
+        display: block;
+    }
+    .angebot-container .item {
+        margin-bottom: 2rem;
+    }
+}
+@media (max-width: 500px) {
+    #home img {
+        width: 22rem;
+    }
+    #angebot h1 {
+        font-size: 4rem;
+    }
+    #angebot h2 {
+        font-size: 1.5rem;
+    }
+    #family-home h1, #paar-home h1, #baby-home h1, #produkt-home h1, #hochzeit-home h1, #extras-home h1 {
+        font-size: 5rem;
+        padding-top: 18rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #home img {
+        width: 18rem;
+    }
+}
