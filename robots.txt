@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://segenreich-fotografie.ch/sitemap.xml
