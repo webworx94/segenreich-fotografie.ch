@@ -77,6 +77,31 @@
 });
 
 
+// SCROLL-EFFEKT
+window.addEventListener('scroll', function() {
+    var scrolled = window.pageYOffset;
+    var parallaxElements = document.querySelectorAll('.parallax-img');
+    
+    parallaxElements.forEach(function(el) {
+        var container = el.parentElement;
+        var containerTop = container.offsetTop;
+        var containerHeight = container.offsetHeight;
+        var windowHeight = window.innerHeight;
+        
+        if (scrolled > containerTop - windowHeight && scrolled < containerTop + containerHeight) {
+            var scrollInContainer = scrolled - (containerTop - windowHeight);
+            
+            // Anpassung der Verschiebung
+            var offset = Math.min(scrollInContainer * -0.1, containerHeight * 0.1); 
+            
+            el.style.transform = `translate(-50%, ${offset}px)`;
+        } else {
+            // Stelle sicher, dass das Bild bei Nicht-Scrollen in der richtigen Position bleibt
+            el.style.transform = `translate(-50%, 0)`;
+        }
+    });
+});
+
 // WEITERLEITUNG ZUM ERFOLGREICHEN SENDEN
 function handleFormSubmit() {
     // Prevents the default form submission
