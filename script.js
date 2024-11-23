@@ -103,6 +103,104 @@ window.addEventListener('scroll', function() {
 });
 
 
+// GALLERY
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const overlay = document.getElementById('overlay');
+    const overlayImage = document.getElementById('overlay-image');
+    const closeBtn = document.getElementById('close-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentImageIndex = 0;
+
+    // Add click event listeners to each gallery item
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            currentImageIndex = index;
+            const imgSrc = item.querySelector('img').getAttribute('src');
+            overlayImage.setAttribute('src', imgSrc);
+            overlay.style.display = 'flex';
+            requestAnimationFrame(() => {
+                overlay.classList.add('show');
+            });
+        });
+    });
+
+    // Close overlay when close button is clicked
+    closeBtn.addEventListener('click', function() {
+        overlay.classList.remove('show');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 1000); // 1s transition time
+    });
+
+    // Previous button functionality
+    prevBtn.addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+        const imgSrc = galleryItems[currentImageIndex].querySelector('img').getAttribute('src');
+        overlayImage.setAttribute('src', imgSrc);
+    });
+
+    // Next button functionality
+    nextBtn.addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+        const imgSrc = galleryItems[currentImageIndex].querySelector('img').getAttribute('src');
+        overlayImage.setAttribute('src', imgSrc);
+    });
+
+    // Close overlay on outside click
+    overlay.addEventListener('click', function(event) {
+        if (event.target === overlay) {
+            overlay.classList.remove('show');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 1000); // 1s transition time
+        }
+    });
+
+    // Keyboard navigation (left/right arrows)
+    document.addEventListener('keydown', function(event) {
+        if (overlay.classList.contains('show')) {
+            if (event.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (event.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (event.key === 'Escape') {
+                closeBtn.click();
+            }
+        }
+    });
+
+    // Handle responsive grid layout
+    function handleResponsiveGrid() {
+        const width = window.innerWidth;
+        const galleryGrid = document.querySelector('.gallery-grid');
+        if (width >= 1000) {
+            galleryGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        } else if (width >= 700) {
+            galleryGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        } else {
+            galleryGrid.style.gridTemplateColumns = '1fr';
+        }
+    }
+
+    window.addEventListener('resize', handleResponsiveGrid);
+    handleResponsiveGrid(); // Initial call
+
+    // Adjust the overlay and close button position for fixed navigation
+    function adjustForNav() {
+        const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
+        if (headerHeight > 0) {
+            overlay.style.paddingTop = `${headerHeight + 2}rem`; // Moves overlay down by header height + 2rem
+            closeBtn.style.top = `${headerHeight + 2}rem`; // Moves close button down by header height + 2rem
+        }
+    }
+
+    window.addEventListener('resize', adjustForNav);
+    adjustForNav(); // Initial call
+});
+
 // ZUM FORMULAR SPRINGEN
 document.addEventListener('DOMContentLoaded', function() {
     const formSender = document.getElementById('form-sender');
