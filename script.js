@@ -102,6 +102,28 @@ window.addEventListener('scroll', function() {
     });
 });
 
+
+// ZUM FORMULAR SPRINGEN
+document.addEventListener('DOMContentLoaded', function() {
+    const formSender = document.getElementById('form-sender');
+    const nameField = document.getElementById('name-field');
+
+    if (formSender && nameField) {
+        formSender.addEventListener('click', function(event) {
+            event.preventDefault();  // Verhindert das Standardverhalten des Links
+
+            // Springe zum Namensfeld
+            nameField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Setze einen kleinen Timeout, um sicherzustellen, dass der Fokus erst nach dem Scrollen erfolgt
+            setTimeout(function() {
+                nameField.focus();
+            }, 600);  // Etwas längerer Timeout für mehr Sicherheit
+        });
+    }
+});
+
+
 // WEITERLEITUNG ZUM ERFOLGREICHEN SENDEN
 function handleFormSubmit() {
     // Prevents the default form submission
