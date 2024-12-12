@@ -634,6 +634,19 @@ form button:hover {
     font-size: 2rem;
     padding-top: 5rem;
 }
+/* IMPORTANT INPUTS ;) */
+#user_address, 
+#confirm_email {
+  visibility: hidden;
+  position: absolute;
+}
+#company_name,
+#feedback_notes,
+#referral_code {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
 /* ================== MEDIA QUERYS ================== */
 @media screen and (max-height: 800px) {
     #home img {

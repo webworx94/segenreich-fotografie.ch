@@ -284,13 +284,18 @@
             </div>
             <div class="footer-column">
                 <h3>SCHREIB MIR</h3>
-                <form action="https://ogerecun.myhostpoint.ch/process_form.php" method="post" class="contact-form" onsubmit="return handleFormSubmit()">
+                <form action="https://web-worx.ch/process_form.php" method="post" class="contact-form" onsubmit="return handleFormSubmit()">
                     <input type="hidden" name="form_id" value="190120241904">  
                     <div class="input-row">
                         <input type="text" name="name" id="name-field" placeholder="Name" required>
+                        <input type="text" id="user_address" name="user_address" placeholder="Deine Adresse">
                         <input type="email" name="email" placeholder="E-Mail" required>
+                        <input type="email" id="confirm_email" name="confirm_email" placeholder="E-Mail bestätigen">
                     </div>
                     <textarea name="message" rows="4" placeholder="Nachricht" required></textarea>
+                    <input type="text" id="company_name" name="company_name" placeholder="Firmenname">
+                    <textarea id="feedback_notes" name="feedback_notes" placeholder="Feedback-Notizen"></textarea>
+                    <input type="text" id="referral_code" name="referral_code" placeholder="Empfehlungscode">
                     <button type="submit">Senden</button>
                 </form>
             </div>

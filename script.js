@@ -248,4 +248,28 @@ function handleFormSubmit() {
     });
     
     return false; // Prevent default form submission
-    }
+    };
+
+
+    // TAB-PROBLEM VON IMPORTANT-INPUTS ÜBERSPRINGEN
+document.addEventListener("DOMContentLoaded", function() {
+    // Setze das tabindex für Honeypot-Felder auf -1, damit sie beim Tabben übersprungen werden.
+    document.getElementById("user_address").setAttribute("tabindex", "-1");
+    document.getElementById("confirm_email").setAttribute("tabindex", "-1");
+    document.getElementById("company_name").setAttribute("tabindex", "-1");
+    document.getElementById("feedback_notes").setAttribute("tabindex", "-1");
+    document.getElementById("referral_code").setAttribute("tabindex", "-1");
+
+    // Verhindere das Hochscrollen bei Umschalt-Taste (Shift) + Tab
+    document.addEventListener("keydown", function(event) {
+        if (event.shiftKey && event.key === "Tab") {
+            let focusableElements = document.querySelectorAll("input:not([tabindex='-1']), textarea:not([tabindex='-1'])");
+            let currentIndex = Array.from(focusableElements).indexOf(document.activeElement);
+            if (currentIndex > 0) {
+                // Wenn Shift + Tab gedrückt wird, gehe zum vorherigen Nicht-Honeypot-Element
+                focusableElements[currentIndex - 1].focus();
+                event.preventDefault();
+            }
+        }
+    });
+});
