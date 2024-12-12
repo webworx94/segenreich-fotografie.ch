@@ -716,6 +716,9 @@ form button:hover {
         font-size: 7rem;
         padding-top: 18rem;
     }
+    #angebot h1, #portfolio h1, #über-mich h1, #impressum h1 {
+        padding: 5rem 1rem 2rem 1rem;
+    }
 }
 @media (min-width: 1131px) {
     .navbar ul {
