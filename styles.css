@@ -640,7 +640,6 @@ form button:hover {
   visibility: hidden;
   position: absolute;
   width: 1px;
-  display: none;
 }
 #company_name,
 #feedback_notes,
