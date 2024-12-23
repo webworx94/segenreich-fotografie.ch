@@ -640,6 +640,7 @@ form button:hover {
   visibility: hidden;
   position: absolute;
   width: 1px;
+  display: none;
 }
 #company_name,
 #feedback_notes,
@@ -648,6 +649,7 @@ form button:hover {
   left: -9999px;
   top: -9999px;
   width: 1px;
+  display: none;
 }
 /* ================== MEDIA QUERYS ================== */
 @media screen and (max-height: 800px) {
