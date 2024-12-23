@@ -639,6 +639,7 @@ form button:hover {
 #confirm_email {
   visibility: hidden;
   position: absolute;
+  width: 1px;
 }
 #company_name,
 #feedback_notes,
@@ -646,6 +647,7 @@ form button:hover {
   position: absolute;
   left: -9999px;
   top: -9999px;
+  width: 1px;
 }
 /* ================== MEDIA QUERYS ================== */
 @media screen and (max-height: 800px) {
